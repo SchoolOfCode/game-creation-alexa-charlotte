@@ -1,10 +1,37 @@
-.App {
+/*.App {
   text-align: center;
 }
 
 .benBod {
   position: absolute;
   transform: scale(0.3, 0.3);
-  top: 10vh;
-  left: 10vw;
+  margin: 0 auto;
+  bottom: -30vh;
+  left: 32vw; 
+}
+
+.benHead {
+  position: absolute;
+  margin: 0 auto;
+  /* bottom: 20vh; 
+  z-index: 1;
+  border: black solid 1px;
+  border-radius: 280%;
+}
+*/
+
+button {
+  display: block;
+  margin: 0 auto;
+}
+
+.benBod {
+  width: 5vw;
+  display: block;
+  margin: 0 46%;
+}
+.benHead {
+  display: block;
+  margin: 0 auto;
+  transform: translate(-15px);
 }
