@@ -1,0 +1,10 @@
+.App {
+  text-align: center;
+}
+
+.benBod {
+  position: absolute;
+  transform: scale(0.3, 0.3);
+  top: 10vh;
+  left: 10vw;
+}
