@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import "./App.css";
-import benHead from "../../../src/ben-head.jpg";
-import mrBenBod from "../../../src/ben-body.jpg";
+import benHead from "../../../src/benFixed.png";
+import mrBenBod from "../../../src/benBody.png";
+import Buttons from "../Buttons/buttons";
 
 // BENAROO
 
@@ -22,21 +23,20 @@ function App() {
   const [size, setSize] = useState(50);
 
   function blowUpBen() {
-    setSize(size + 25);
+    setSize(size + 15);
   }
 
   return (
     <div className="App">
-      <div>
-        <img
-          className="benHead"
-          src={benHead}
-          alt="ben"
-          style={{ width: size }}
-        />
-        <img className="benBod" src={mrBenBod} alt="benbod" />
-      </div>
+      <img
+        className="benHead"
+        src={benHead}
+        alt="ben"
+        style={{ width: size }}
+      />
+      <img className="benBod" src={mrBenBod} alt="benbod" />
       <button onClick={blowUpBen}>Ask Ben a Question!</button>
+      <Buttons />
     </div>
   );
 }
