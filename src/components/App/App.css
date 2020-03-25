@@ -1,24 +1,6 @@
-/*.App {
+.App {
   text-align: center;
 }
-
-.benBod {
-  position: absolute;
-  transform: scale(0.3, 0.3);
-  margin: 0 auto;
-  bottom: -30vh;
-  left: 32vw; 
-}
-
-.benHead {
-  position: absolute;
-  margin: 0 auto;
-  /* bottom: 20vh; 
-  z-index: 1;
-  border: black solid 1px;
-  border-radius: 280%;
-}
-*/
 
 button {
   display: block;
@@ -34,4 +16,60 @@ button {
   display: block;
   margin: 0 auto;
   transform: translate(-15px);
+  transition: all 0.2s ease-in-out;
+}
+#benarooTitle {
+  display: block;
+  margin: 3vh auto;
+
+  -webkit-animation: vibrate-1 0.3s linear infinite both;
+  animation: vibrate-1 0.3s linear infinite both;
+}
+
+h1 {
+  margin: 0 auto;
+  text-align: center;
+  border: red solid 3px;
+  background-color: yellow;
+  width: 80vw;
+}
+h2 {
+  text-align: center;
+}
+
+p {
+  display: block;
+  position: absolute;
+  left: 18vw;
+  color: red;
+  font-size: 10vw;
+  top: 60vh;
+  font-weight: 900;
+}
+
+@keyframes vibrate-1 {
+  0% {
+    -webkit-transform: translate(0);
+    transform: translate(0);
+  }
+  20% {
+    -webkit-transform: translate(-2px, 2px);
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    -webkit-transform: translate(-2px, -2px);
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    -webkit-transform: translate(2px, 2px);
+    transform: translate(2px, 2px);
+  }
+  80% {
+    -webkit-transform: translate(2px, -2px);
+    transform: translate(2px, -2px);
+  }
+  100% {
+    -webkit-transform: translate(0);
+    transform: translate(0);
+  }
 }
