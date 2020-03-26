@@ -23,7 +23,7 @@ function App() {
   const [gameOver, setGameOver] = useState("");
   const [head, setHead] = useState("");
   const [quote, setQuote] = useState("");
-  const [click, setClick] = useState(false);
+  const [isPlayer1, setIsPlayer1] = useState(true);
 
   const bubbles = [
     docs,
@@ -40,7 +40,7 @@ function App() {
 
   // ADDS QUOTES FROM CHRIS.
   useEffect(() => {
-    if (size > 170 && size < 250) {
+    if (size > 170 && size < 220) {
       setQuote(bubbles[Math.floor(Math.random() * 10)]);
       console.log("over 70");
     }
@@ -48,12 +48,12 @@ function App() {
 
   //GENERATES LIMIT AND DIFFERENT BUTTON NUMBERS.
   useEffect(() => {
-    setBenLimit(Math.floor(Math.random() * (250 - 180 + 1) + 180));
+    setBenLimit(Math.floor(Math.random() * (220 - 180 + 1) + 180));
   }, []);
 
   function blowUpBen() {
     setSize(size + Math.floor(Math.random() * (30 - -2) + -2));
-    setClick(true);
+    setIsPlayer1(!isPlayer1);
   }
 
   console.log("size=  " + size);
@@ -86,11 +86,12 @@ function App() {
         style={{ width: size }}
       />
       <img className="benBod" src={mrBenBod} alt="benbod" />
-      <Buttons blowUpBen={blowUpBen} click={click} />
+      <Buttons blowUpBen={blowUpBen} />
       <p>{gameOver}</p>
 
       <img id="quote" src={quote} alt="" />
       <img id="boom" src={head} alt="" />
+      <p id="player">{isPlayer1 ? "Player 1" : "Player 2"}</p>
     </div>
   );
 }
