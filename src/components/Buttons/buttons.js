@@ -1,37 +1,45 @@
-import React from "react";
+import React, { useState } from "react";
 import "./buttons.css";
 // import blowUpBen from "../App/Index";
 const topics = [
-  "babel",
-  "css",
-  "codeWars",
-  "express",
-  "git",
-  "heroku",
-  "html",
-  "jest",
-  "js",
-  "netlify",
-  "node",
-  "pg",
-  "postman",
-  "react",
-  "vsCode"
+  { text: "babel", used: false },
+  { text: "css", used: false },
+  { text: "codeWars", used: false },
+  { text: "express", used: false },
+  { text: "git", used: false },
+  { text: "heroku", used: false },
+  { text: "html", used: false },
+  { text: "jest", used: false },
+  { text: "js", used: false },
+  { text: "netlify", used: false },
+  { text: "node", used: false },
+  { text: "pg", used: false },
+  { text: "postman", used: false },
+  { text: "react", used: false },
+  { text: "vsCode", used: false }
 ];
 
-function Buttons({ blowUpBen, click }) {
+function Buttons({ blowUpBen }) {
+  const [options, setOptions] = useState(topics);
   return (
     <div id="buttonDiv">
-      {topics.map(topic => (
-        <button
-          onClick={blowUpBen}
-          id={topic}
-          alt={topic}
-          style={{
-            backgroundColor: click ? "green" : "red"
-          }}
-        ></button>
-      ))}
+      {options.map(
+        (topic, index) =>
+          !topic.used && (
+            <button
+              onClick={() => {
+                setOptions([
+                  ...options.slice(0, index),
+                  { ...topic, used: true },
+                  ...options.slice(index + 1)
+                ]);
+                blowUpBen();
+              }}
+              id={topic.text}
+              alt={topic.text}
+            ></button>
+          )
+      )}
     </div>
   );
 }
