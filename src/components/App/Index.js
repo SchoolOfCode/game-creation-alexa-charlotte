@@ -92,7 +92,7 @@ function App() {
       <p>{gameOver}</p>
       <p id="winner">{winner}</p>
 
-      <img className="quote" src={quote} alt="" />
+      <img id="quote" className="roll-in-blurred-left" src={quote} alt="" />
       <img id="boom" src={head} alt="" />
       <p id="player">{isPlayer1 ? "Player 1" : "Player 2"}</p>
     </div>
