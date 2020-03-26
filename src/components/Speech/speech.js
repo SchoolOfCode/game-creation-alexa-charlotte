@@ -25,7 +25,7 @@ function Speech({ size }) {
     plan
   ];
 
-  if (size > 70 && size < 250) {
+  if (size > 70 && size < 100) {
     setPicture(bubbles[Math.floor(Math.random() * 10)]);
     console.log("over 70");
     // } else if (size > 100 && size < 130) {

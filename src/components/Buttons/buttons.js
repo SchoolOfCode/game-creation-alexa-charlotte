@@ -19,16 +19,18 @@ const topics = [
   "vsCode"
 ];
 
-function Buttons({ blowUpBen }) {
-  // const [size, setSize] = useState(50);
-
-  // function blowUpBen() {
-  //   setSize(size + 15);
-  // }
+function Buttons({ blowUpBen, click }) {
   return (
     <div id="buttonDiv">
       {topics.map(topic => (
-        <button onClick={blowUpBen} id={topic} alt={topic}></button>
+        <button
+          onClick={blowUpBen}
+          id={topic}
+          alt={topic}
+          style={{
+            backgroundColor: click ? "green" : "red"
+          }}
+        ></button>
       ))}
     </div>
   );

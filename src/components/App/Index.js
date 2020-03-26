@@ -14,14 +14,16 @@ import minutes from "../Speech/bubbles/chris minutes.JPG";
 import nearly from "../Speech/bubbles/chris nearly.JPG";
 import nice from "../Speech/bubbles/chris nice.JPG";
 import plan from "../Speech/bubbles/chris plan.JPG";
+import boom from "../Buttons/boom.png";
 
 function App() {
   //
   const [size, setSize] = useState(50);
   const [benLimit, setBenLimit] = useState(51);
   const [gameOver, setGameOver] = useState("");
-  const [head, setHead] = useState(false);
-  const [picture, setPicture] = useState("");
+  const [head, setHead] = useState("");
+  const [quote, setQuote] = useState("");
+  const [click, setClick] = useState(false);
 
   const bubbles = [
     docs,
@@ -36,29 +38,33 @@ function App() {
     plan
   ];
 
+  // ADDS QUOTES FROM CHRIS.
   useEffect(() => {
-    if (size > 70 && size < 100) {
-      setPicture(bubbles[Math.floor(Math.random() * 10)]);
+    if (size > 170 && size < 250) {
+      setQuote(bubbles[Math.floor(Math.random() * 10)]);
       console.log("over 70");
     }
   }, [size]);
 
+  //GENERATES LIMIT AND DIFFERENT BUTTON NUMBERS.
   useEffect(() => {
     setBenLimit(Math.floor(Math.random() * (250 - 180 + 1) + 180));
   }, []);
 
   function blowUpBen() {
     setSize(size + Math.floor(Math.random() * (30 - -2) + -2));
+    setClick(true);
   }
 
   console.log("size=  " + size);
   console.log("I can see  " + benLimit);
 
+  //RENDERS GAME OVER AND BOOM PICTURE.
   useEffect(() => {
     if (size > benLimit) {
       console.log("Game Over");
       setGameOver("GAME OVER!");
-      setHead(true);
+      setHead(boom);
     }
   }, [size]);
 
@@ -67,8 +73,12 @@ function App() {
       <img id="benarooTitle" src={benaroo} alt="Benaroo" />
       <h1>Click on a button below and see how Ben reacts!</h1>
       <h2>
-        If you're the one who makes his head explode, hang your head in shame!
+        When Chris starts giving advice, you know Ben is nearly at breaking
+        point!
       </h2>
+      <h4>
+        If you're the one who makes his head explode, hang your head in shame!
+      </h4>
       <img
         className="benHead"
         src={benHead}
@@ -76,10 +86,11 @@ function App() {
         style={{ width: size }}
       />
       <img className="benBod" src={mrBenBod} alt="benbod" />
-      <Buttons blowUpBen={blowUpBen} />
+      <Buttons blowUpBen={blowUpBen} click={click} />
       <p>{gameOver}</p>
 
-      <img src={picture} alt="" />
+      <img id="quote" src={quote} alt="" />
+      <img id="boom" src={head} alt="" />
     </div>
   );
 }
