@@ -54,7 +54,7 @@ p {
     1px 1px white;
 }
 
-#quote {
+.quote {
   width: 20vw;
   position: absolute;
   left: 5vw;
@@ -71,6 +71,33 @@ p {
   font-weight: 900;
   z-index: 0;
   border-radius: 400px;
+}
+
+#player {
+  font-size: 3vw;
+  color: black;
+  display: block;
+  position: absolute;
+  left: 75vw;
+  top: 65vh;
+  background-color: yellow;
+  border: red solid 2px;
+  border-radius: 15px;
+  width: 10vw;
+  z-index: 0;
+}
+
+#winner {
+  display: block;
+  position: absolute;
+  left: 35vw;
+  color: black;
+  font-size: 5vw;
+  top: 95vh;
+  font-weight: 900;
+  z-index: 1;
+  text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px white,
+    1px 1px white;
 }
 
 @keyframes vibrate-1 {
