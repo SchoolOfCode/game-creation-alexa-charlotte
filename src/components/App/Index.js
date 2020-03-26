@@ -24,6 +24,7 @@ function App() {
   const [head, setHead] = useState("");
   const [quote, setQuote] = useState("");
   const [isPlayer1, setIsPlayer1] = useState(true);
+  const [winner, setWinner] = useState("");
 
   const bubbles = [
     docs,
@@ -65,6 +66,7 @@ function App() {
       console.log("Game Over");
       setGameOver("GAME OVER!");
       setHead(boom);
+      setWinner(isPlayer1 ? "Player 1 Wins!" : "Player 2 Wins");
     }
   }, [size]);
 
@@ -88,8 +90,9 @@ function App() {
       <img className="benBod" src={mrBenBod} alt="benbod" />
       <Buttons blowUpBen={blowUpBen} />
       <p>{gameOver}</p>
+      <p id="winner">{winner}</p>
 
-      <img id="quote" src={quote} alt="" />
+      <img className="quote" src={quote} alt="" />
       <img id="boom" src={head} alt="" />
       <p id="player">{isPlayer1 ? "Player 1" : "Player 2"}</p>
     </div>
